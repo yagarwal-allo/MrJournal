@@ -13,4 +13,4 @@ cp .example.env .env.local
 - [x] Add streaming support in the agent.
 - [x] Handle the errors gracefully. Rate limit / Content moderation / Other errors.
 - [ ] Take care of hallucinations and tasks out of scope.
-- [ ] Integrate with a chat interface.
+- [x] Integrate with a chat interface.
