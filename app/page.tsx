@@ -1,8 +1,9 @@
 'use client';
 
 import { useState } from 'react';
-import { Message, continueConversation } from './actions';
+import { continueConversation } from './actions';
 import { readStreamableValue } from 'ai/rsc';
+import { Message } from '@/llm/interface';
 
 export default function Home() {
   const [conversation, setConversation] = useState<Message[]>([]);
@@ -28,10 +29,14 @@ export default function Home() {
         />
         <button
           onClick={async () => {
-            const { messages, newMessage } = await continueConversation([
+            const newConversation = [
               ...conversation,
-              { role: 'user', content: input },
-            ]);
+              { role: 'user', content: input } as Message,
+            ]
+
+            setConversation(newConversation)
+
+            const { messages, newMessage } = await continueConversation(newConversation);
 
             let textContent = '';
 

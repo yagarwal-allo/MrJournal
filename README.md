@@ -10,7 +10,7 @@ cp .example.env .env.local
 
 ## Tasks:
 - [x] Create a basic journaling agent.
-- [ ] Add streaming support in the agent.
-- [ ] Integrate with a chat interface.
-- [ ] Maybe start storing chat history on the server side. (in memory for now)
+- [x] Add streaming support in the agent.
 - [ ] Handle the errors gracefully. Rate limit / Content moderation / Other errors.
+- [ ] Take care of hallucinations and tasks out of scope.
+- [ ] Integrate with a chat interface.
