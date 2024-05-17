@@ -13,3 +13,4 @@ cp .example.env .env.local
 - [ ] Add streaming support in the agent.
 - [ ] Integrate with a chat interface.
 - [ ] Maybe start storing chat history on the server side. (in memory for now)
+- [ ] Handle the errors gracefully. Rate limit / Content moderation / Other errors.

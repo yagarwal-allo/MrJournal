@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { Message, continueConversation } from './actions';
+import { readStreamableValue } from 'ai/rsc';
 
 export default function Home() {
   const [conversation, setConversation] = useState<Message[]>([]);
@@ -27,12 +28,21 @@ export default function Home() {
         />
         <button
           onClick={async () => {
-            const { messages } = await continueConversation([
+            const { messages, newMessage } = await continueConversation([
               ...conversation,
               { role: 'user', content: input },
             ]);
 
-            setConversation(messages as Message[]);
+            let textContent = '';
+
+            for await (const delta of readStreamableValue(newMessage)) {
+              textContent = `${textContent}${delta}`;
+
+              setConversation([
+                ...messages,
+                { role: 'assistant', content: textContent },
+              ]);
+            }
           }}
         >
           Send Message
