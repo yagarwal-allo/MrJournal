@@ -12,5 +12,5 @@ cp .example.env .env.local
 - [x] Create a basic journaling agent.
 - [x] Add streaming support in the agent.
 - [x] Handle the errors gracefully. Rate limit / Content moderation / Other errors.
-- [ ] Take care of hallucinations and tasks out of scope.
+- [x] Take care of hallucinations and tasks out of scope.
 - [x] Integrate with a chat interface.

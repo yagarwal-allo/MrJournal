@@ -12,7 +12,7 @@ type ChatUIProps = {
 export const ChatUI = (props: ChatUIProps) => {
   return (
     <div className="flex flex-col items-center h-screen">
-      <div className="border border-slate-300 flex flex-col items-center w-4/5 p-3 mt-2 grow">
+      <div className="border border-slate-300 flex flex-col items-center w-4/5 p-3 mt-2 grow overflow-y-scroll">
         {props.conversation.map((message, index) => {
           return message.role === 'assistant'
             ? <AgentChatBubble message={message.content} key={`${index}-agent-msg`} />
@@ -32,7 +32,7 @@ export const ChatUI = (props: ChatUIProps) => {
 
 const AgentChatBubble = (props: { message: string }) => {
   return (
-    <div className='flex justify-start w-full text-left'>
+    <div className='flex justify-start w-full text-left pt-3'>
       <div className='max-w-prose bg-yellow-100 p-2 rounded-md'>
         {props.message}
       </div>
